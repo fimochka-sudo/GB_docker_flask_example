@@ -22,6 +22,7 @@ API: flask
 ### Клонируем репозиторий и создаем образ
 ```
 $ git clone https://github.com/fimochka-sudo/GB_docker_flask_example.git
+$ cd GB_docker_flask_example
 $ docker build -t fimochka/gb_docker_flask_example .
 ```
 
