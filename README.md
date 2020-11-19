@@ -1,21 +1,32 @@
 # python-flask-docker
-Basic Python Flask app in Docker which prints the hostname and IP of the container
+Итоговый проект (пример) курса "Машинное обучение в бизнесе"
 
-### Build application
-Build the Docker image manually by cloning the Git repo.
+Стек:
+
+ML: sklearn, pandas, numpy
+API: flask
+Данные: с kaggle - https://www.kaggle.com/shivamb/real-or-fake-fake-jobposting-prediction
+
+Задача: предсказать по описанию вакансии является ли она фейком или нет (поле fraudulent). Бинарная классификация
+
+Используемые признаки:
+
+description (text)
+company_profile (text)
+benefits (text)
+Преобразования признаков: tfidf
+
+Модель: logreg
+
+### Клонируем репозиторий и создаем образ
 ```
 $ git clone https://github.com/fimochka-sudo/GB_docker_flask_example.git
 $ docker build -t fimochka/gb_docker_flask_example .
 ```
 
-### Download precreated image
-You can also just download the existing image from [DockerHub](https://hub.docker.com/r/fimochka/gb_docker_flask_example/).
-```
-docker pull fimochka/gb_docker_flask_example
-```
-
-### Run the container
-Create a container from the image.
+### Запускаем контейнер
 ```
 $ docker run -d -p 8180:8180 -p 8181:8181 fimochka/gb_docker_flask_example
 ```
+
+### Переходим на localhost:8181
