@@ -11,9 +11,10 @@ API: flask
 
 Используемые признаки:
 
-description (text)
-company_profile (text)
-benefits (text)
+- description (text)
+- company_profile (text)
+- benefits (text)
+
 Преобразования признаков: tfidf
 
 Модель: logreg
