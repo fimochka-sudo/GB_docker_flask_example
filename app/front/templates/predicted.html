@@ -1,0 +1,39 @@
+{% extends "index.html" %}
+{% block title %}Results{% endblock %}
+{% block content %}
+    {% if not response.error %}
+    <div class="row d-flex justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header text-center">
+                <h2>Results</h2>
+            </div>
+            <div class="card-body">
+
+            <p class="card-text">Probability of being fraudulent: <b>{{ response }}</b></p>
+
+               <div class="text-center">
+                    <a href="{{ url_for('predict_form') }}" class="btn btn-primary">Back</a>
+               </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="card">
+        <div class="card-header text-center">
+            <b>Error</b>
+        </div>
+        <div class="card-body">
+            {% if response.error == 'ConnectionError' %}
+                <p class="card-text text-center">Нет связи с ML сервисом</p>
+            {% else %}
+                <p class="card-text text-center">Ошибка ML сервиса</p>
+        {% endif %}
+        <div class="text-center">
+                <a href="{{ url_for('predict_form') }}" class="btn btn-primary">Назад</a>
+        </div>
+        </div>
+        </div>
+    </div>
+    </div>
+    {% endif %}
+{% endblock %}
